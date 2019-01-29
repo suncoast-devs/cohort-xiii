@@ -49,3 +49,31 @@ p {
 ul.character-list {
   list-style: none;
 }
+
+nav {
+  background-color: yellowgreen;
+  padding: 1rem;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav li {
+  display: inline;
+  margin-right: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+}
+
+nav a:visited {
+  color: white;
+}
+
+nav a:hover {
+  color: orange;
+}
