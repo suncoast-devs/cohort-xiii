@@ -1,0 +1,51 @@
+:root {
+  font: 16px / 1 sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  border: 10px solid #424242;
+}
+
+header {
+  font-size: 2rem;
+  color: yellow;
+  background-color: darkblue;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+.fancy-header {
+  background-color: pink;
+  padding: 1rem;
+  margin: 1rem 4rem 1rem 4rem;
+  border: 0.25rem dotted green;
+  text-align: center;
+}
+
+.hero-image {
+  width: 100%;
+}
+
+.luke-picture {
+  border: 0.5rem solid purple;
+}
+
+.hero-text {
+  padding-right: 10rem;
+}
+
+.hero-text:hover {
+  background-color: aqua;
+}
+
+ul.character-list {
+  list-style: none;
+}
