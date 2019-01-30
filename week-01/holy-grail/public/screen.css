@@ -15,7 +15,59 @@ body {
   text-transform: uppercase;
 }
 
+.top-bar {
+  padding: 1rem;
+}
+
+.bottom-bar {
+  margin: 1rem;
+}
+
 .top-bar, .bottom-bar {
   height: 3rem;
   text-align: center;
+  background-color: #86CBFD;
+}
+
+.purple {
+  background-color: #CB9ACB;
+}
+
+.peach {
+  background-color: #FECCCC;
+}
+
+.black-border {
+  border: 0.25rem solid black;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+}
+
+nav, aside {
+  flex-basis: 20rem;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.menu-list {
+  list-style: none;
+  margin: 0 0 0 0.5rem;
+  padding: 0;
+}
+
+nav header {
+  text-align: center;
+}
+
+aside section {
+  text-align: center;
+  margin: 1rem;
+  font-size: 2.5rem;
 }
