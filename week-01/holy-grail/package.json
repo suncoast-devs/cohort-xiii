@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "name": "holy-grail",
+  "homepage": "https://holy-grail-mdewey.netlify.com",
+  "scripts": {
+    "deploy": "netlify deploy --prod --dir=public",
+    "postdeploy": "echo 'Your site was deployed to https://holy-grail-mdewey.netlify.com'",
+    "start": "browser-sync start --server 'public' --files 'public'"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "stylelint": "^9.10.1",
+    "stylelint-config-standard": "^18.2.0"
+  }
+}

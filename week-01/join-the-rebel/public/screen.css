@@ -51,6 +51,9 @@ p {
 
 ul.character-list {
   list-style: none;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 nav {
@@ -64,8 +67,7 @@ nav ul {
 }
 
 nav li {
-  display: inline;
-  margin-right: 3rem;
+  border: 3px dotted purple;
 }
 
 nav a {
@@ -80,4 +82,11 @@ nav a:visited {
 
 nav a:hover {
   color: orange;
+}
+
+/* Flex examples */
+
+.menu-list {
+  display: flex;
+  justify-content: space-between;
 }
