@@ -41,10 +41,11 @@ nav ul {
 
 nav li {
   padding: 1.5rem;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 nav a {
+  font-size: 1rem;
   color: #f7f0da;
   text-decoration: none;
   text-shadow: 1px 1px 0 rgba(47, 38, 10, 0.5);
@@ -58,8 +59,15 @@ nav a:hover {
   background-color: #5a9090;
 }
 
+.logo {
+  width: 20rem;
+  padding: 3rem 0;
+  display: none;
+}
+
 h1 {
   margin: 4rem;
+  display: none;
 }
 
 h2,
@@ -85,8 +93,23 @@ section img {
 section p {
   max-width: 12rem;
   padding: 2rem;
+  display: none;
 }
 
 .leadership h2 {
   font-size: 1.5rem;
+}
+
+article {
+  position: relative;
+}
+
+article h2 {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(47, 38, 10, 0.5);
+  width: 100%;
+  color: #f7f0ca;
+  margin: 0;
+  padding: 0.5rem 0;
 }
