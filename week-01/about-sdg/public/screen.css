@@ -1,0 +1,92 @@
+:root {
+  font: 16px / 1 sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+
+  background-color: #f7f0da;
+  background-image: url(/images/stamp.svg);
+  background-repeat: no-repeat;
+  background-position: right -25vw bottom -5vw;
+  background-attachment: fixed;
+  background-size: 90vw;
+  color: #2f3737;
+  text-align: center;
+}
+
+nav {
+  background-color: #76bcbb;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav img {
+  height: 2rem;
+  padding: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav li {
+  padding: 1.5rem;
+  font-size: 2rem;
+}
+
+nav a {
+  color: #f7f0da;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 rgba(47, 38, 10, 0.5);
+}
+
+nav a:visited {
+  color: #f7f0da;
+}
+
+nav a:hover {
+  background-color: #5a9090;
+}
+
+h1 {
+  margin: 4rem;
+}
+
+h2,
+h3 {
+  font-size: 1rem;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  padding: 0.2rem;
+  margin: auto;
+}
+
+section img {
+  padding: 0.1rem;
+  border: 0.1rem solid #135e5e;
+  background-color: #f7f0da;
+}
+
+section p {
+  max-width: 12rem;
+  padding: 2rem;
+}
+
+.leadership h2 {
+  font-size: 1.5rem;
+}
