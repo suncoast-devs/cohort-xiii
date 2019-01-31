@@ -85,6 +85,7 @@ section {
 }
 
 section img {
+  width: 12rem;
   padding: 0.1rem;
   border: 0.1rem solid #135e5e;
   background-color: #f7f0da;
@@ -112,4 +113,37 @@ article h2 {
   color: #f7f0ca;
   margin: 0;
   padding: 0.5rem 0;
+}
+
+@media (min-width: 700px) {
+  /* MORE CSS HERE to use when the screen is larger */
+
+  .logo {
+    display: initial;
+  }
+
+  nav a {
+    font-size: 2rem;
+  }
+
+  h1 {
+    display: block;
+  }
+
+  article h2 {
+    position: initial;
+    color: initial;
+    background-color: initial;
+    padding: 2rem 0;
+    margin: initial;
+  }
+
+  article img {
+    width: 24rem;
+    object-fit: cover;
+  }
+
+  article p {
+    display: block;
+  }
 }
