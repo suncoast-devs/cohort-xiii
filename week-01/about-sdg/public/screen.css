@@ -1,0 +1,149 @@
+:root {
+  font: 16px / 1 sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+
+  background-color: #f7f0da;
+  background-image: url(/images/stamp.svg);
+  background-repeat: no-repeat;
+  background-position: right -25vw bottom -5vw;
+  background-attachment: fixed;
+  background-size: 90vw;
+  color: #2f3737;
+  text-align: center;
+}
+
+nav {
+  background-color: #76bcbb;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav img {
+  height: 2rem;
+  padding: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav li {
+  padding: 1.5rem;
+  font-size: 1rem;
+}
+
+nav a {
+  font-size: 1rem;
+  color: #f7f0da;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 rgba(47, 38, 10, 0.5);
+}
+
+nav a:visited {
+  color: #f7f0da;
+}
+
+nav a:hover {
+  background-color: #5a9090;
+}
+
+.logo {
+  width: 20rem;
+  padding: 3rem 0;
+  display: none;
+}
+
+h1 {
+  margin: 4rem;
+  display: none;
+}
+
+h2,
+h3 {
+  font-size: 1rem;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  padding: 0.2rem;
+  margin: auto;
+}
+
+section img {
+  width: 12rem;
+  padding: 0.1rem;
+  border: 0.1rem solid #135e5e;
+  background-color: #f7f0da;
+}
+
+section p {
+  max-width: 12rem;
+  padding: 2rem;
+  display: none;
+}
+
+.leadership h2 {
+  font-size: 1.5rem;
+}
+
+article {
+  position: relative;
+}
+
+article h2 {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(47, 38, 10, 0.5);
+  width: 100%;
+  color: #f7f0ca;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+@media (min-width: 700px) {
+  /* MORE CSS HERE to use when the screen is larger */
+
+  .logo {
+    display: initial;
+  }
+
+  nav a {
+    font-size: 2rem;
+  }
+
+  h1 {
+    display: block;
+  }
+
+  article h2 {
+    position: initial;
+    color: initial;
+    background-color: initial;
+    padding: 2rem 0;
+    margin: initial;
+  }
+
+  article img {
+    width: 24rem;
+    object-fit: cover;
+  }
+
+  article p {
+    display: block;
+  }
+}
