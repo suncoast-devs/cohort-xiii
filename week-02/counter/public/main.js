@@ -1,6 +1,7 @@
 let counter = 0
 
 const main = () => {
+  document.querySelector('h2.hello-world').textContent = 'Hello from js'
   document.querySelector('p').textContent = 0
 }
 
