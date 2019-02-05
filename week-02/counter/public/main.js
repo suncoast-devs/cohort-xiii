@@ -13,6 +13,22 @@ const increaseCounter = () => {
   counter = counter + 1
   // shortcut : counter++
   console.log(counter)
+
+  // add logic to display whether or not the counter is even
+  if (counter % 2 === 0) {
+    // the number is even
+    document.querySelector('.output').textContent = 'The number is even!'
+    // add the class "green-text" the number
+    document.querySelector('p').classList.remove('blue-text')
+    document.querySelector('p').classList.add('green-text')
+    // display message
+  } else {
+    document.querySelector('.output').textContent = 'The number is odd!'
+    // the number is odd
+    // add the class "blue-text" the number
+    document.querySelector('p').classList.remove('green-text')
+    document.querySelector('p').classList.add('blue-text')
+  }
   // update the HTML with the new value
   // hey DOM, find the <p> and set your textContent = counter
   document.querySelector('p').textContent = counter

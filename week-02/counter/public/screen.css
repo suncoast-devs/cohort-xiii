@@ -20,3 +20,11 @@ p {
   display: flex;
   justify-content: center;
 }
+
+.green-text {
+  color: green;
+}
+
+.blue-text {
+  color: blue;
+}
