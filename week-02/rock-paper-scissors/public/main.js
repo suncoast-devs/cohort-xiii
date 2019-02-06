@@ -1,13 +1,24 @@
+const possibleSelections = ['rock', 'paper', 'scissors']
 let playerSelection
 
 const computersTurn = () => {
   console.log('computer turn has started')
-  const possibleSelections = ['rock', 'paper', 'scissors']
   const pick = Math.floor(Math.random() * possibleSelections.length)
   const selected = possibleSelections[pick]
   console.log(selected)
   document.querySelector('.computer-pick').textContent = selected
+  let message
+  if (playerSelection === 'rock' && selected === 'paper') {
+    message = 'player lost, paper beats rock'
+  } else if (playerSelection === 'rock' && selected === 'scissors') {
+    message = 'player won, rock beats scissors'
+  } else if (playerSelection === 'rock' && selected === 'rock') {
+    message = 'tie! try again'
+  }
+  document.querySelector('.results').textContent = message
 }
+
+const addButtonsToPage = () => {}
 
 // player selected rock
 const playerSelectedRock = () => {
