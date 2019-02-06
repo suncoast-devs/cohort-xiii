@@ -1,5 +1,6 @@
 let playerSelection
 
+// player selected rock
 const playerSelectedRock = () => {
   playerSelection = 'rock'
   console.log(playerSelection)
