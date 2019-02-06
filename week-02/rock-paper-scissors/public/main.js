@@ -1,4 +1,4 @@
-const possibleSelections = ['rock', 'paper', 'scissors']
+const possibleSelections = ['rock', 'paper', 'scissors', 'lizard', 'spock']
 let playerSelection
 
 const computersTurn = () => {
@@ -18,7 +18,16 @@ const computersTurn = () => {
   document.querySelector('.results').textContent = message
 }
 
-const addButtonsToPage = () => {}
+const addButtonsToPage = () => {
+  for (let i = 0; i < possibleSelections.length; i++) {
+    // create the button
+    const btn = document.createElement('button')
+    btn.textContent = possibleSelections[i].toUpperCase() + '!!!!'
+    // add to the DOM
+    document.querySelector('.button-container').appendChild(btn)
+    // attached the listener
+  }
+}
 
 // player selected rock
 const playerSelectedRock = () => {
@@ -42,15 +51,13 @@ const playerSelectedScissors = () => {
   computersTurn()
 }
 
-const main = () => {}
-
-document.addEventListener('DOMContentLoaded', main)
-document
-  .querySelector('#rockButton')
-  .addEventListener('click', playerSelectedRock)
-document
-  .querySelector('#paperButton')
-  .addEventListener('click', playerSelectedPaper)
-document
-  .querySelector('#scissorsButton')
-  .addEventListener('click', playerSelectedScissors)
+document.addEventListener('DOMContentLoaded', addButtonsToPage)
+// document
+//   .querySelector('#rockButton')
+//   .addEventListener('click', playerSelectedRock)
+// document
+//   .querySelector('#paperButton')
+//   .addEventListener('click', playerSelectedPaper)
+// document
+//   .querySelector('#scissorsButton')
+//   .addEventListener('click', playerSelectedScissors)
