@@ -62,4 +62,16 @@ const main = () => {
   console.log(deck)
 }
 
+const dealCard = () => {
+  // remove the 1st card from our deck
+  const drawnCard = deck.shift()
+  // add to the player hand
+  // update the UI
+  const cardElement = document.createElement('li')
+  cardElement.textContent = drawnCard.rank + ' of ' + drawnCard.suit
+  cardElement.classList.add(drawnCard.suit.toLowerCase())
+  document.querySelector('.player-hand').appendChild(cardElement)
+}
+
 document.addEventListener('DOMContentLoaded', main)
+document.querySelector('.dealCard').addEventListener('click', dealCard)

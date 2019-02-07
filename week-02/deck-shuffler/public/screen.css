@@ -10,3 +10,19 @@ body {
   margin: 0;
   min-height: 100%;
 }
+
+.spades {
+  color: black
+}
+
+.hearts {
+  color: Red
+}
+
+.diamonds {
+  color: pink
+}
+
+.clubs {
+  color: green;
+}
