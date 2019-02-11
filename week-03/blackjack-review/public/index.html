@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Blackjack Review</title>
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/screen.css">
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/screen.css" />
   </head>
   <body>
-    <h1 class='hello-world'></h1>
+    <header>Welcome to blackjack</header>
+    <section class="player-record">
+      <p>Win/Loss Count: 14-10</p>
+      <button>reset game</button>
+    </section>
+    <section class="player-details">
+      <header>Player Hand</header>
+      <section class="player-score">13</section>
+      <ul class="player-hand">
+        <li class="card">
+          <img src="/images/3_of_hearts.svg" alt="3 of the hearts card" />
+        </li>
+        <li class="card">
+          <img src="/images/queen_of_spades.svg" alt="queen of spades card" />
+        </li>
+      </ul>
+      <button class="hit-button">hit</button>
+      <button class="stand-button">stand</button>
+    </section>
+    <section class="dealer-details">
+      <header>Dealer Hand</header>
+      <section class="dealer-score">??</section>
+      <ul class="dealer-hand">
+        <li class="card">
+          <img src="/images/7_of_hearts.svg" alt="3 of the hearts card" />
+        </li>
+        <li class="card">
+          <img src="/images/black_joker.svg" alt="queen of spades card" />
+        </li>
+      </ul>
+    </section>
     <script src="/main.js" charset="utf-8"></script>
   </body>
 </html>
