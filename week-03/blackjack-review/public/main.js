@@ -73,8 +73,21 @@ const createDeck = () => {
   console.log(deck)
 }
 
+const shuffleDeck = () => {
+  for (let i = deck.length - 1; i >= 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    // swapping
+    const cardAtI = deck[i]
+    const cardAtJ = deck[j]
+    deck[i] = cardAtJ
+    deck[j] = cardAtI
+  }
+  console.log('shuffled deck', deck)
+}
+
 const main = () => {
   createDeck()
+  shuffleDeck()
 }
 
 document.addEventListener('DOMContentLoaded', main)
