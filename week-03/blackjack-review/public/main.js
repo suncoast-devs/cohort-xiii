@@ -63,6 +63,10 @@ const player = {
   losses: 0
 }
 
+const dealer = {
+  hand: []
+}
+
 const createDeck = () => {
   deck = []
   suits.forEach(suit => {
@@ -98,6 +102,10 @@ const dealCardToPlayer = () => {
   player.hand.push(nextCard)
 }
 
+const dealCardToDealer = () => {
+  const nextCard = deck.shift()
+  dealer.hand.push(nextCard)
+}
 const displayPlayerHand = () => {
   // remove all the cards in the existing ul
   const parent = document.querySelector('.player-hand')
@@ -115,6 +123,17 @@ const displayPlayerHand = () => {
   lis.forEach(li => {
     document.querySelector('.player-hand').appendChild(li)
   })
+}
+
+const displayDealerHand = () => {
+  // document.querySelector('.player-hand').textContent = ''
+  const cardToReveal = dealer.hand[0]
+  const img = document.createElement('img')
+  img.src = '/images/' + cardToReveal.imageUrl + '.svg'
+  const li = document.createElement('li')
+  li.appendChild(img)
+
+  document.querySelector('.dealer-hand').appendChild(li)
 }
 
 const displayPlayerTotal = () => {
@@ -149,7 +168,10 @@ const startGame = () => {
   displayPlayerHand()
   displayPlayerTotal()
   // deal 2 cards to dealer
+  dealCardToDealer()
+  dealCardToDealer()
   // show only 1 dealer card
+  displayDealerHand()
 }
 
 const main = () => {
