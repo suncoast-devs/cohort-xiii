@@ -95,17 +95,29 @@ const shuffleDeck = () => {
   console.log('shuffled deck', deck)
 }
 
-const dealCardToPlayer = () => {
+const getNextCard = () => {
   // .shift to remove the first card from deck
-  const nextCard = deck.shift()
+  return deck.shift()
+}
+const dealCardToPlayer = () => {
   // .push to add to the player hand
-  player.hand.push(nextCard)
+  player.hand.push(getNextCard())
 }
 
 const dealCardToDealer = () => {
-  const nextCard = deck.shift()
+  const nextCard = getNextCard()
+  console.log(nextCard)
   dealer.hand.push(nextCard)
 }
+
+const createCardHTML = card => {
+  const img = document.createElement('img')
+  img.src = '/images/' + card.imageUrl + '.svg'
+  const li = document.createElement('li')
+  li.appendChild(img)
+  return li
+}
+
 const displayPlayerHand = () => {
   // remove all the cards in the existing ul
   const parent = document.querySelector('.player-hand')
@@ -114,11 +126,7 @@ const displayPlayerHand = () => {
   }
   // document.querySelector('.player-hand').textContent = ''
   const lis = player.hand.map(card => {
-    const img = document.createElement('img')
-    img.src = '/images/' + card.imageUrl + '.svg'
-    const li = document.createElement('li')
-    li.appendChild(img)
-    return li
+    return createCardHTML(card)
   })
   lis.forEach(li => {
     document.querySelector('.player-hand').appendChild(li)
@@ -128,11 +136,7 @@ const displayPlayerHand = () => {
 const displayDealerHand = () => {
   // document.querySelector('.player-hand').textContent = ''
   const cardToReveal = dealer.hand[0]
-  const img = document.createElement('img')
-  img.src = '/images/' + cardToReveal.imageUrl + '.svg'
-  const li = document.createElement('li')
-  li.appendChild(img)
-
+  const li = createCardHTML(cardToReveal)
   document.querySelector('.dealer-hand').appendChild(li)
 }
 
@@ -180,4 +184,14 @@ const main = () => {
   startGame()
 }
 
+const playerHit = () => {
+  // card is drawn
+  // added tp player hand
+  dealCardToPlayer()
+  // update the display total
+  displayPlayerTotal()
+  displayPlayerHand()
+}
+
 document.addEventListener('DOMContentLoaded', main)
+document.querySelector('.hit-button').addEventListener('click', playerHit)
