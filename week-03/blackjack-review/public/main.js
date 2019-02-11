@@ -146,10 +146,8 @@ const startGame = () => {
   dealCardToPlayer()
   console.log(player)
   // show player their cards (and their points)
-  // display cards as lis
   displayPlayerHand()
   displayPlayerTotal()
-  // get the sum
   // deal 2 cards to dealer
   // show only 1 dealer card
 }
