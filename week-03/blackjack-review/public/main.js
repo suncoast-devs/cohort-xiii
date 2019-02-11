@@ -140,7 +140,7 @@ const displayDealerHand = () => {
   document.querySelector('.dealer-hand').appendChild(li)
 }
 
-const displayPlayerTotal = () => {
+const getSumOfCards = cards => {
   // sum up all the cards in a players hand
   // reduce
   // const playerScore = player.hand.reduce((total, card) => {
@@ -153,14 +153,24 @@ const displayPlayerTotal = () => {
   // player.hand.forEach(card => {
   //   playerScore += card.value
   // })
-
   // for loop
-  let playerScore = 0
-  for (let i = 0; i < player.hand.length; i++) {
-    playerScore += player.hand[i].value
+  let score = 0
+  for (let i = 0; i < cards.length; i++) {
+    score += cards[i].value
   }
+  return score
+}
 
-  document.querySelector('.player-score').textContent = playerScore
+const getSumOfPlayerCards = () => {
+  return getSumOfCards(player.hand)
+}
+
+const getSumOfDealerCards = () => {
+  return getSumOfCards(dealer.hand)
+}
+
+const displayPlayerTotal = () => {
+  document.querySelector('.player-score').textContent = getSumOfPlayerCards()
 }
 
 const startGame = () => {
@@ -191,7 +201,20 @@ const playerHit = () => {
   // update the display total
   displayPlayerTotal()
   displayPlayerHand()
+  // check for player bust
+  // sum up the cards
+  const playerScore = getSumOfPlayerCards()
+  // if greater than 21, player lose
+  if (playerScore > 21) {
+    console.log('Player lost')
+  }
+}
+
+const playerStand = () => {
+  // while the sum of the dealer hand <= 16
+  // dealer will a take card
 }
 
 document.addEventListener('DOMContentLoaded', main)
 document.querySelector('.hit-button').addEventListener('click', playerHit)
+document.querySelector('.stand-button').addEventListener('click', playerStand)
