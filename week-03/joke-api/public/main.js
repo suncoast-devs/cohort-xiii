@@ -13,6 +13,9 @@ const getJoke = () => {
       currentJoke = joke
       document.querySelector('.joke').textContent = joke.setup
       document.querySelector('.punchline').textContent = ''
+      setTimeout(() => {
+        revealPunchline()
+      }, 3000)
     })
 }
 
@@ -20,7 +23,4 @@ const revealPunchline = () => {
   document.querySelector('.punchline').textContent = currentJoke.punchline
 }
 
-document
-  .querySelector('.reveal-punchline')
-  .addEventListener('click', revealPunchline)
 document.querySelector('.get-joke-button').addEventListener('click', getJoke)
