@@ -14,7 +14,7 @@ const getJoke = () => {
       document.querySelector('.joke').textContent = joke.setup
       document.querySelector('.punchline').textContent = ''
       setTimeout(() => {
-        revealPunchline()
+        revealPunchline()œ
       }, 3000)
     })
 }
