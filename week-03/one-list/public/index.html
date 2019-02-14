@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>One List</title>
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/screen.css">
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/screen.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1 class='hello-world'></h1>
+    <h1 class="header">One List</h1>
+    <form>
+      <input type="text" id="newItem" placeholder="Add TODO" />
+      <button><i class="fas fa-plus"></i></button>
+    </form>
+    <ol class="todo-list">
+      <li>
+        <section>
+          <span>Task A</span> <button><i class="far fa-trash-alt"></i></button>
+        </section>
+      </li>
+      <li>
+        <section>
+          <span>Task B</span> <button><i class="far fa-trash-alt"></i></button>
+        </section>
+      </li>
+      <li>
+        <section>
+          <span>Task C</span> <button><i class="far fa-trash-alt"></i></button>
+        </section>
+      </li>
+    </ol>
     <script src="/main.js" charset="utf-8"></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+      integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
