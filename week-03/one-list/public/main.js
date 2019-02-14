@@ -37,29 +37,7 @@ class TodoList {
         const li = document.createElement('li')
         const section = document.createElement('section')
         section.addEventListener('click', () => {
-          item.complete = true
-          fetch(
-            `https://one-list-api.herokuapp.com/items/${
-              item.id
-            }?access_token=cohort-xiii`,
-            {
-              method: 'PUT',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                item: {
-                  complete: true
-                }
-              })
-            }
-          ).then(resp => {
-            if (resp.status >= 300) {
-              console.log('something went wrong')
-            } else {
-              TODO_LIST.render()
-            }
-          })
+          markItemAsComplete(item)
         })
         section.appendChild(span)
         section.appendChild(btn)
@@ -81,6 +59,32 @@ const main = () => {
       TODO_LIST.list = list
       TODO_LIST.render()
     })
+}
+
+const markItemAsComplete = item => {
+  item.complete = !item.complete
+  fetch(
+    `https://one-list-api.herokuapp.com/items/${
+      item.id
+    }?access_token=cohort-xiii`,
+    {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        item: {
+          complete: item.complete
+        }
+      })
+    }
+  ).then(resp => {
+    if (resp.status >= 300) {
+      console.log('something went wrong')
+    } else {
+      TODO_LIST.render()
+    }
+  })
 }
 
 const addItem = event => {
