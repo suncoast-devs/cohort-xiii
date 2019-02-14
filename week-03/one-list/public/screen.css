@@ -1,5 +1,6 @@
 :root {
   font: 16px / 1 sans-serif;
+  --primary-background-color: rgb(5, 71, 5);
 }
 
 html {
@@ -13,7 +14,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: rgb(5, 71, 5);
+  background-color: var(--primary-background-color);
   color: whitesmoke;
 }
 
