@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "weatherapi",
+  "homepage": "https://weatherapi-Elro1118.netlify.com",
+  "scripts": {
+    "deploy": "netlify deploy --prod --dir=public",
+    "postdeploy": "echo 'Your site was deployed to https://weatherapi-Elro1118.netlify.com'",
+    "start": "browser-sync start --server 'public' --files 'public'"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "eslint": "^5.13.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "stylelint": "^9.10.1",
+    "stylelint-config-standard": "^18.2.0"
+  }
+}
