@@ -25,8 +25,10 @@ class TodoList {
       .map(item => {
         // create the HTML for an list item
         const span = document.createElement('span')
-        console.log(item)
         span.textContent = item.text
+        if (item.complete) {
+          span.classList.add('completed-item')
+        }
         const icon = document.createElement('i')
         icon.classList.add('far')
         icon.classList.add('fa-trash-alt')
@@ -34,6 +36,31 @@ class TodoList {
         btn.appendChild(icon)
         const li = document.createElement('li')
         const section = document.createElement('section')
+        section.addEventListener('click', () => {
+          item.complete = true
+          fetch(
+            `https://one-list-api.herokuapp.com/items/${
+              item.id
+            }?access_token=cohort-xiii`,
+            {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                item: {
+                  complete: true
+                }
+              })
+            }
+          ).then(resp => {
+            if (resp.status >= 300) {
+              console.log('something went wrong')
+            } else {
+              TODO_LIST.render()
+            }
+          })
+        })
         section.appendChild(span)
         section.appendChild(btn)
         li.appendChild(section)
@@ -51,7 +78,6 @@ const main = () => {
   fetch(API_URL)
     .then(resp => resp.json())
     .then(list => {
-      console.log(list)
       TODO_LIST.list = list
       TODO_LIST.render()
     })
@@ -60,7 +86,6 @@ const main = () => {
 const addItem = event => {
   event.preventDefault()
   const newItemToAdd = document.querySelector('#newItem').value
-  console.log('adding item', newItemToAdd)
   fetch(API_URL, {
     method: 'POST',
     headers: {
@@ -74,7 +99,6 @@ const addItem = event => {
   })
     .then(resp => resp.json())
     .then(listItem => {
-      console.log(listItem)
       TODO_LIST.list.push(new ListItem(listItem))
       // update the list in the HTML
       TODO_LIST.render()
