@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
-import HelloWorld from './components/HelloWorld'
+import Dinocat from './components/Dinocat'
+import Header from './components/Header'
 
 class App extends Component {
   render() {
-    return <HelloWorld />
+    return (
+      <>
+        <Dinocat />
+        <JusticeCat />
+        <SuperHeroCat />
+      </>
+    )
   }
 }
 
