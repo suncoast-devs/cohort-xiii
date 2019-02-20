@@ -1,15 +1,29 @@
 import React, { Component } from 'react'
 import Villain from './Villain'
 
-import data from '../data/villains.json'
+// import data from '../data/villains.json'
 
 class Villains extends Component {
+  state = {
+    villains: []
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:8080/villains')
+      .then(resp => resp.json())
+      .then(data => {
+        console.log('from server')
+        console.log(data)
+        this.setState({
+          villains: data
+        })
+      })
+  }
+
   render() {
-    console.log(data)
     return (
       <main>
-        {' '}
-        {data.map(villain => {
+        {this.state.villains.map(villain => {
           return (
             <Villain
               key={villain.id}
