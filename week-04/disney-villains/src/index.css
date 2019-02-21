@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Coiny');
 :root {
   font: 16px / 1 sans-serif;
+  font-family: 'Coiny', cursive;
 }
 
 html {

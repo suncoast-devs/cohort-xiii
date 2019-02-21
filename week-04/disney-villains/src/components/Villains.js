@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import Villain from './Villain'
 
-// import data from '../data/villains.json'
-
 class Villains extends Component {
   state = {
     villains: []

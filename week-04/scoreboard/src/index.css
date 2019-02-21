@@ -1,0 +1,39 @@
+:root {
+  font: 16px / 1 sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+.score-area {
+  display: flex;
+  justify-content: space-around
+}
+
+.score-area p {
+  font-size: 3rem
+}
+
+.update-score {
+  display: flex;
+  flex-direction: row;
+}
+
+.update-score .team-name {
+  display: flex;
+  flex-direction: row;
+}
+
+.update-score section {
+  margin: 1rem;
+}
