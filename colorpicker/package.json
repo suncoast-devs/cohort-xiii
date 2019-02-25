@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "name": "colorpicker",
+  "homepage": "https://colorpicker-onemira.netlify.com",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "react-scripts build",
+    "deploy": "netlify deploy --prod --dir=build",
+    "postdeploy": "echo 'Your site was deployed to https://colorpicker-onemira.netlify.com'",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "stylelint": "^9.10.1",
+    "stylelint-config-standard": "^18.2.0"
+  },
+  "dependencies": {
+    "json": "^9.0.6",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-scripts": "^2.1.5"
+  }
+}

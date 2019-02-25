@@ -1,0 +1,66 @@
+:root {
+  font: 16px / 1 bitter;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100%;
+  margin: 1rem;
+}
+
+.allmycontents {
+  padding: 2rem;
+  border: double 5px rgb(49, 49, 9);
+  border-radius: 0.5rem;
+  background-color: rgba(241, 167, 207, 0.3);
+}
+
+.contents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 2.5rem;
+  text-align: center;
+  text-shadow: 3px 3px whitesmoke;
+  background-color: rgba(184, 187, 185, 0.3);
+  padding: 0.5rem;
+}
+
+.colorEx {
+  height: 3rem;
+  width: 3rem;
+  border: solid 5px rgb(241, 241, 216);
+}
+
+.colorArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.colorHistory {
+  line-height: 2rem;
+  list-style: inside url('../src/images/heart.png');
+  background-color: whitesmoke;
+  padding: 1rem;
+}
+
+.hslrange {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  word-spacing: 0.6rem;
+}
