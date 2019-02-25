@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import axios from 'axios'
+
 import Villain from './Villain'
 
 class Villains extends Component {
@@ -7,15 +9,22 @@ class Villains extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:8080/villains')
-      .then(resp => resp.json())
-      .then(data => {
-        console.log('from server')
-        console.log(data)
-        this.setState({
-          villains: data
-        })
+    axios.get('http://localhost:8080/villains').then(resp => {
+      console.log({ resp })
+      this.setState({
+        villains: resp.data
       })
+    })
+
+    // fetch('http://localhost:8080/villains')
+    //   .then(resp => resp.json())
+    //   .then(data => {
+    //     console.log('from server')
+    //     console.log(data)
+    //     this.setState({
+    //       villains: data
+    //     })
+    //   })
   }
 
   render() {
