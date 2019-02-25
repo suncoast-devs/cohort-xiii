@@ -59,39 +59,24 @@ class App extends Component {
             <button onClick={this.saveYourColor}>what's this color?</button>
           </section>
           <section className="hslrange">
-            <Slider label="H" maxValue="240" />
-            <Slider label="S" maxValue="100" />
-            <Slider label="L" maxValue="100" />
-            {/* <p>
-              H{' '}
-              <input
-                type="range"
-                onChange={this.hValue}
-                min="0"
-                max="240"
-                value={this.state.h}
-              />
-            </p>
-            <p>
-              S{' '}
-              <input
-                type="range"
-                onChange={this.sValue}
-                min="0"
-                max="100"
-                value={this.state.s}
-              />
-            </p>
-            <p>
-              L{' '}
-              <input
-                type="range"
-                onChange={this.lValue}
-                min="0"
-                max="100"
-                value={this.state.l}
-              />
-            </p> */}
+            <Slider
+              label="H"
+              maxValue="240"
+              onSlide={this.hValue}
+              sliderValue={this.state.h}
+            />
+            <Slider
+              label="S"
+              maxValue="100"
+              onSlide={this.sValue}
+              sliderValue={this.state.s}
+            />
+            <Slider
+              label="L"
+              maxValue="100"
+              onSlide={this.lValue}
+              sliderValue={this.state.l}
+            />
           </section>
         </main>
       </section>
