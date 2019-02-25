@@ -6,16 +6,17 @@ class SavedColors extends Component {
     return (
       <section className="colorArea">
         <ul className="colorHistory">
-          {this.props.savedColors.map(color => {
+          {this.props.savedColors.map((color, i) => {
             return (
-              <li>
+              <li key={i}>
                 <ColorBox
                   s={color.saturation}
                   h={color.hue}
                   l={color.lightness}
+                  a={color.alpha}
                 />
                 Hue:{color.hue}, Saturation: {color.saturation}%, Lightness:
-                {color.lightness}%
+                {color.lightness}%, Alpha: {color.alpha}
               </li>
             )
           })}

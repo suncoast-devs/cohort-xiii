@@ -42,6 +42,8 @@ body {
   height: 3rem;
   width: 3rem;
   border: solid 5px rgb(241, 241, 216);
+  background-image: url('./images/box.png');
+  background-size: contain;
 }
 
 .colorArea {

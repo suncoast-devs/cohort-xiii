@@ -8,43 +8,25 @@ class App extends Component {
     h: 120,
     s: 50,
     l: 50,
+    a: 50,
     divStyle: '',
     yourColor: []
   }
 
-  hValue = event => {
+  updateHslaFromSlider = (event, key) => {
     this.setState({
-      h: event.target.value
+      [key]: event.target.value
     })
-    console.log(this.state.h)
-  }
-  sValue = event => {
-    this.setState({
-      s: event.target.value
-    })
-    console.log(this.state.s)
-  }
-  lValue = event => {
-    this.setState({
-      l: event.target.value
-    })
-    console.log(this.state.l)
+    console.log(this.state[key])
   }
 
   saveYourColor = () => {
-    // this.setState({
-    //   yourColor: this.state.yourColor.concat(
-    //     `Hue:${this.state.h} + Saturation: ${this.state.s}% + Lightness: ${
-    //       this.state.l
-    //     }%`
-    //   )
-    // })
-
     this.setState({
       yourColor: this.state.yourColor.concat({
         hue: this.state.h,
         saturation: this.state.s,
-        lightness: this.state.l
+        lightness: this.state.l,
+        alpha: this.state.a
       })
     })
   }
@@ -53,7 +35,12 @@ class App extends Component {
       <section className="allmycontents">
         <h1 className="title"> Pick My Color💕</h1>
         <main className="contents">
-          <ColorBox h={this.state.h} l={this.state.l} s={this.state.s} />
+          <ColorBox
+            h={this.state.h}
+            l={this.state.l}
+            s={this.state.s}
+            a={this.state.a}
+          />
           <SavedColors
             savedColors={this.state.yourColor}
             saveYourColor={this.saveYourColor}
@@ -62,20 +49,26 @@ class App extends Component {
             <Slider
               label="H"
               maxValue="240"
-              onSlide={this.hValue}
+              onSlide={event => this.updateHslaFromSlider(event, 'h')}
               sliderValue={this.state.h}
             />
             <Slider
               label="S"
               maxValue="100"
-              onSlide={this.sValue}
+              onSlide={event => this.updateHslaFromSlider(event, 's')}
               sliderValue={this.state.s}
             />
             <Slider
               label="L"
               maxValue="100"
-              onSlide={this.lValue}
+              onSlide={event => this.updateHslaFromSlider(event, 'l')}
               sliderValue={this.state.l}
+            />
+            <Slider
+              label="A"
+              maxValue="100"
+              onSlide={event => this.updateHslaFromSlider(event, 'a')}
+              sliderValue={this.state.a}
             />
           </section>
         </main>

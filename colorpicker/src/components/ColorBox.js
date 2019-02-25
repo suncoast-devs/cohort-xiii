@@ -6,9 +6,9 @@ class ColorBox extends Component {
       <div
         className="colorEx"
         style={{
-          backgroundColor: `hsl(${this.props.h},${this.props.s}%,${
+          backgroundColor: `hsla(${this.props.h},${this.props.s}%,${
             this.props.l
-          }%)`
+          }%, ${this.props.a}% )`
         }}
       />
     )
