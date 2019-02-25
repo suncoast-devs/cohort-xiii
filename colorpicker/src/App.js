@@ -13,6 +13,19 @@ class App extends Component {
     yourColor: []
   }
 
+  componentDidMount() {
+    this.selectRandomColor()
+  }
+
+  selectRandomColor = () => {
+    this.setState({
+      h: Math.floor(Math.random() * 240),
+      s: Math.floor(Math.random() * 100),
+      l: Math.floor(Math.random() * 100),
+      a: Math.floor(Math.random() * 100)
+    })
+  }
+
   updateHslaFromSlider = (event, key) => {
     this.setState({
       [key]: event.target.value
@@ -41,10 +54,16 @@ class App extends Component {
             s={this.state.s}
             a={this.state.a}
           />
-          <SavedColors
-            savedColors={this.state.yourColor}
-            saveYourColor={this.saveYourColor}
-          />
+          {this.state.yourColor.length > 0 ? (
+            <SavedColors
+              savedColors={this.state.yourColor}
+              saveYourColor={this.saveYourColor}
+            />
+          ) : (
+            <p>no colors saved yet....</p>
+          )}
+          <button onClick={this.saveYourColor}>what's this color?</button>
+          <button onClick={this.selectRandomColor}>Random!!!</button>
           <section className="hslrange">
             <Slider
               label="H"

@@ -21,7 +21,6 @@ class SavedColors extends Component {
             )
           })}
         </ul>
-        <button onClick={this.props.saveYourColor}>what's this color?</button>
       </section>
     )
   }
