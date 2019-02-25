@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Slider from './components/Slider'
 
 class App extends Component {
   state = {
@@ -58,7 +59,10 @@ class App extends Component {
             <button onClick={this.saveYourColor}>what's this color?</button>
           </section>
           <section className="hslrange">
-            <p>
+            <Slider label="H" maxValue="240" />
+            <Slider label="S" maxValue="100" />
+            <Slider label="L" maxValue="100" />
+            {/* <p>
               H{' '}
               <input
                 type="range"
@@ -87,7 +91,7 @@ class App extends Component {
                 max="100"
                 value={this.state.l}
               />
-            </p>
+            </p> */}
           </section>
         </main>
       </section>
