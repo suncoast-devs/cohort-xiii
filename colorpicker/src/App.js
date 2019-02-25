@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Slider from './components/Slider'
 import SavedColors from './components/SavedColors'
+import ColorBox from './components/ColorBox'
 
 class App extends Component {
   state = {
@@ -31,12 +32,20 @@ class App extends Component {
   }
 
   saveYourColor = () => {
+    // this.setState({
+    //   yourColor: this.state.yourColor.concat(
+    //     `Hue:${this.state.h} + Saturation: ${this.state.s}% + Lightness: ${
+    //       this.state.l
+    //     }%`
+    //   )
+    // })
+
     this.setState({
-      yourColor: this.state.yourColor.concat(
-        `Hue:${this.state.h} + Saturation: ${this.state.s}% + Lightness: ${
-          this.state.l
-        }%`
-      )
+      yourColor: this.state.yourColor.concat({
+        hue: this.state.h,
+        saturation: this.state.s,
+        lightness: this.state.l
+      })
     })
   }
   render() {
@@ -44,14 +53,7 @@ class App extends Component {
       <section className="allmycontents">
         <h1 className="title"> Pick My Color💕</h1>
         <main className="contents">
-          <div
-            className="colorEx"
-            style={{
-              backgroundColor: `hsl(${this.state.h},${this.state.s}%,${
-                this.state.l
-              }%)`
-            }}
-          />
+          <ColorBox h={this.state.h} l={this.state.l} s={this.state.s} />
           <SavedColors
             savedColors={this.state.yourColor}
             saveYourColor={this.saveYourColor}
