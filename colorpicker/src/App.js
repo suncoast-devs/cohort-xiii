@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Slider from './components/Slider'
+import SavedColors from './components/SavedColors'
 
 class App extends Component {
   state = {
@@ -28,6 +29,7 @@ class App extends Component {
     })
     console.log(this.state.l)
   }
+
   saveYourColor = () => {
     this.setState({
       yourColor: this.state.yourColor.concat(
@@ -50,14 +52,10 @@ class App extends Component {
               }%)`
             }}
           />
-          <section className="colorArea">
-            <ul className="colorHistory">
-              {this.state.yourColor.map(color => {
-                return <li>{color}</li>
-              })}
-            </ul>
-            <button onClick={this.saveYourColor}>what's this color?</button>
-          </section>
+          <SavedColors
+            savedColors={this.state.yourColor}
+            saveYourColor={this.saveYourColor}
+          />
           <section className="hslrange">
             <Slider
               label="H"
