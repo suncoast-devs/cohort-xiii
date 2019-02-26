@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Card from './Card'
 
 const FACES = [
   '🤖',
@@ -20,14 +21,26 @@ const FACES = [
 ]
 
 class MemoryGame extends Component {
+  state = {
+    selectedCards: []
+  }
+  addCardToSelected = index => {
+    this.setState({
+      selectedCards: this.state.selectedCards.concat(index)
+    })
+  }
   render() {
     return (
       <main className="game-container">
-        {FACES.map((face, i) => {
+        {FACES.map((face, index) => {
           return (
-            <div className="card" key={i}>
-              {face}
-            </div>
+            <Card
+              key={index}
+              face={face}
+              index={index}
+              addCardToSelected={this.addCardToSelected}
+              selected={this.state.selectedCards.includes(index)}
+            />
           )
         })}
       </main>
