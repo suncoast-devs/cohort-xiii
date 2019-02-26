@@ -22,29 +22,36 @@ const FACES = [
 
 class MemoryGame extends Component {
   state = {
-    selectedCards: [],
+    revealedCards: [],
     currentPair: []
   }
   addCardToSelected = index => {
     // if this.state.currentPair.length < 2
     // add currently selected to CMM
     // in addition to selected cards
-    if (this.state.currentPair.length < 2) {
+    const pair = this.state.currentPair.concat(index)
+    if (pair.length < 2) {
       // check to see if current pair is a match
       this.setState({
-        selectedCards: this.state.selectedCards.concat(index),
-        currentPair: [index] // resets current pair to jsut the selectd once we have selected a third card
+        revealedCards: this.state.revealedCards.concat(index),
+        currentPair: [index] // resets current pair to just the selected once we have selected a third card
       })
     } else {
-      const pair = this.state.currentPair.concat(index)
       if (FACES[pair[0]] === FACES[pair[1]]) {
         console.log('matched!')
         this.setState({
-          currentPair: pair,
-          selectedCards: this.state.selectedCards.concat(pair)
+          currentPair: [pair],
+          revealedCards: this.state.revealedCards.concat(pair)
         })
       } else {
         console.log('not matched')
+        this.setState({
+          currentPair: [],
+          revealedCards: this.state.revealedCards.concat(index).filter(i => {
+            console.log({ i, pair })
+            return i !== pair[0] && i !== pair[1]
+          })
+        })
       }
     }
   }
@@ -58,7 +65,7 @@ class MemoryGame extends Component {
               face={face}
               index={index}
               addCardToSelected={this.addCardToSelected}
-              selected={this.state.selectedCards.includes(index)}
+              selected={this.state.revealedCards.includes(index)}
             />
           )
         })}
