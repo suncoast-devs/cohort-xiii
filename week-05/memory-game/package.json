@@ -1,13 +1,13 @@
 {
   "private": true,
-  "name": "nested-maps-example",
-  "homepage": "nowhere",
+  "name": "memory-game",
+  "homepage": "https://memory-game-mdewey.netlify.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "react-scripts build",
-    "deploy": "echo You have no deployment tool configured",
-    "postdeploy": "echo 'Your site was deployed to nowhere'",
+    "deploy": "netlify deploy --prod --dir=build",
+    "postdeploy": "echo 'Your site was deployed to https://memory-game-mdewey.netlify.com'",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -22,7 +22,6 @@
     "stylelint-config-standard": "^18.2.0"
   },
   "dependencies": {
-    "axios": "^0.18.0",
     "json": "^9.0.6",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
