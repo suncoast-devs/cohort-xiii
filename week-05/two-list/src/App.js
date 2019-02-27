@@ -56,10 +56,23 @@ class App extends Component {
       })
   }
 
+  resetList = () => {
+    // delete all the task from the API
+
+    // reset the state
+    // reset toDoList
+    // reset the newItemText
+    this.setState({
+      todoList: [],
+      newItemText: ''
+    })
+  }
+
   render() {
     return (
       <>
         <h1 className="header">Two List (React)</h1>
+        <button onClick={this.resetList}>RESET LIST</button>
         <form className="add-form" onSubmit={this.addItemToApi}>
           <input
             type="text"
