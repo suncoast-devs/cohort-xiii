@@ -38,13 +38,11 @@ class MemoryGame extends Component {
       })
     } else {
       if (FACES[pair[0]] === FACES[pair[1]]) {
-        console.log('matched!')
         this.setState({
           currentPair: [pair],
           revealedCards: this.state.revealedCards.concat(pair)
         })
       } else {
-        console.log('not matched')
         this.setState({
           currentPair: [],
           revealedCards: this.state.revealedCards.concat(index).filter(i => {
