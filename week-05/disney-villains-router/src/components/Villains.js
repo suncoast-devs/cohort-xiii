@@ -34,9 +34,10 @@ class Villains extends Component {
           return (
             <Villain
               key={villain.id}
+              id={villain.id}
               villainName={villain.name}
               description={villain.bio}
-              image={villain.picture}
+              image={villain.icon}
             />
           )
         })}
