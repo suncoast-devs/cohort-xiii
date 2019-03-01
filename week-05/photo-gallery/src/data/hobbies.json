@@ -1,0 +1,34 @@
+{
+  "pandas": {
+    "title": "Panda Bears",
+    "description": "Pandas are bears native to south-central China, and are objectively the cutest animals on earth.",
+    "photos": [
+      {
+        "title": "Panda Waving",
+        "imageURL": "https://cdn-images-1.medium.com/max/1600/1*i1vVm3EqqDIkyucD0079wg.jpeg",
+        "sourceURL": "https://codeburst.io/pandas-for-data-stuff-code-challenge-7972207a8294"
+      },
+      {
+        "title": "Großer Panda im Ocean Park, Hongkong",
+        "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Grosser_Panda.JPG/2560px-Grosser_Panda.JPG",
+        "sourceURL": "https://en.wikipedia.org/wiki/Giant_panda"
+      }
+    ]
+  },
+  "miniatures": {
+    "title": "Miniature Painting",
+    "description": "I enjoy painting miniatures. I've only been painting for about 6-months, here's some of my work.",
+    "photos": [
+      {
+        "title": "Blood Rage, Ram Clan",
+        "imageURL": "https://i.pinimg.com/originals/46/c5/d2/46c5d2b5785b25e4487abc0fbbc17f04.jpg",
+        "sourceURL": "https://i.pinimg.com/originals/46/c5/d2/46c5d2b5785b25e4487abc0fbbc17f04.jpg"
+      },
+      {
+        "title": "A powerful druid, protecting his land",
+        "imageURL": "https://i.pinimg.com/originals/f9/7b/1a/f97b1a3a728540ee5468923047b58e0f.jpg",
+        "sourceURL": "https://i.pinimg.com/originals/f9/7b/1a/f97b1a3a728540ee5468923047b58e0f.jpg"
+      }
+    ]
+  }
+}
