@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import hobbies from '../data/hobbies.json'
 
@@ -20,7 +21,9 @@ class CategoryList extends Component {
             console.log('the hobby object:', hobbies[hobby])
             return (
               <section key={i} className="hobby">
-                <header>{hobbies[hobby].title}</header>
+                <header>
+                  <Link to={`/${hobby}`}>{hobbies[hobby].title}</Link>
+                </header>
                 <p>{hobbies[hobby].description}</p>
                 <img src={hobbies[hobby].photos[0].imageURL} />
               </section>
