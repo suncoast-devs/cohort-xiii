@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Link } from 'react-router-dom'
 import hobbies from '../data/hobbies.json'
 
 class PhotoList extends Component {
@@ -24,7 +24,14 @@ class PhotoList extends Component {
           <section>
             {currentHobby.photos.map((photo, index) => {
               console.log(photo)
-              return <img key={index} src={photo.imageURL} alt={photo.title} />
+              return (
+                <Link
+                  key={index}
+                  to={`/${this.props.match.params.hobby}/${index}`}
+                >
+                  <img src={photo.imageURL} alt={photo.title} />
+                </Link>
+              )
             })}
           </section>
         </section>
