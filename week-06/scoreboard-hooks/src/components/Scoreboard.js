@@ -16,6 +16,12 @@ export default function Scoreboard(props) {
   // this is the for the input box
   const [team2InputName, setTeam2InputName] = useState('Team 2')
 
+  const subtract1FromTeam1 = () => {
+    if (team1Score > 0) {
+      setTeam1Score(prevScore => prevScore - 1)
+    }
+  }
+
   return (
     <>
       <h1>Welcome to {props.title}</h1>
@@ -47,9 +53,7 @@ export default function Scoreboard(props) {
             <button onClick={() => setTeam1Score(prevScore => prevScore + 1)}>
               add 1
             </button>
-            <button onClick={() => setTeam1Score(prevScore => prevScore - 1)}>
-              subtract 1
-            </button>
+            <button onClick={subtract1FromTeam1}>subtract 1</button>
           </section>
         </section>
         <section className="team2">
