@@ -10,6 +10,12 @@ export default function Scoreboard(props) {
   // this is the for the input box
   const [team1InputName, setTeam1InputName] = useState('Team 1')
 
+  // this is the h1 tag to be displayed
+  const [team2DisplayName, setTeam2DisplayName] = useState('Team 2')
+
+  // this is the for the input box
+  const [team2InputName, setTeam2InputName] = useState('Team 2')
+
   return (
     <>
       <h1>Welcome to {props.title}</h1>
@@ -19,7 +25,7 @@ export default function Scoreboard(props) {
           <p>{team1Score}</p>
         </section>
         <section className="team2">
-          <h2>Team 2</h2>
+          <h2>{team2DisplayName}</h2>
           <p>{team2Score}</p>
         </section>
       </section>
@@ -49,8 +55,14 @@ export default function Scoreboard(props) {
         <section className="team2">
           <section className="team-name">
             update team 2 name
-            <input type="number" />
-            <button>Update</button>
+            <input
+              type="text"
+              value={team2InputName}
+              onChange={event => setTeam2InputName(event.target.value)}
+            />
+            <button onClick={() => setTeam2DisplayName(team2InputName)}>
+              Update
+            </button>
           </section>
           <section>
             update team 2 score
