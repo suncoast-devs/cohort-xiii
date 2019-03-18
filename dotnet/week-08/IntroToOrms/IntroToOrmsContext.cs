@@ -25,5 +25,10 @@ namespace IntroToOrms
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     { }
+
+
+    // public DbSet<SchemaClass> TableName {get;set;}
+    public DbSet<Team> Teams { get; set; }
+
   }
 }
