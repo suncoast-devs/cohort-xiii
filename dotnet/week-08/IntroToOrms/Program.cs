@@ -64,7 +64,7 @@ namespace IntroToOrms
       // select 
       // SELECT * FROM Teams WHERE Mascot = 'Patriots' OR Mascot = 'Eagles'
       var thoseTeams = db.Teams.Where(team => team.Mascot == "Patriots" || team.Mascot == "Eagles");
-    )
+
       foreach (var team in thoseTeams)
       {
         Console.WriteLine(team.City + " " + team.Mascot);
@@ -93,17 +93,35 @@ namespace IntroToOrms
       }
       db.SaveChanges();
 
+
+      // add a player to the Wallabyes
+      // find the Wallabyes
+      var wallabyes = db.Teams.FirstOrDefault(team => team.Id == 1);
+      // create a new player
+      var jordan = new Players
+      {
+        FullName = "Jordan",
+        Injured = false,
+        Number = "13",
+        Position = "Center",
+      };
+      // add player to the Wallabyes
+      wallabyes.Players.Add(jordan);
+      // save changes
+      db.SaveChanges();
+
+
       // delete
       // DELETE FROM Teams WHERE Id = 2    
       // find the thing to delete
-      var thatTeam = db.Teams.FirstOrDefault(team => team.Id == 2);
-      if (thatTeam != null)
-      {
-        // delete it
-        db.Teams.Remove(thatTeam);
-      }
-      // save the changes
-      db.SaveChanges();
+      // var thatTeam = db.Teams.FirstOrDefault(team => team.Id == 2);
+      // // if (thatTeam != null)
+      // // {
+      // //   // delete it
+      // //   db.Teams.Remove(thatTeam);
+      // // }
+      // // // save the changes
+      // // db.SaveChanges();
     }
   }
 }

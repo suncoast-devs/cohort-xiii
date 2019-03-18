@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace IntroToOrms
 {
@@ -16,5 +17,8 @@ namespace IntroToOrms
     public double AverageTicketPrice { get; set; }
 
     // players
+
+    public List<Players> Players { get; set; } = new List<Players>();
+
   }
 }
