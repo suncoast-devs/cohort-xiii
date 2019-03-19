@@ -80,6 +80,24 @@ namespace HackerNews
         else if (input == "add")
         {
           Console.WriteLine("Adding an article...");
+          // read the url
+          Console.WriteLine("Url?");
+          var url = Console.ReadLine();
+          // read the title
+          Console.WriteLine("Title?");
+          var title = Console.ReadLine();
+          // create it
+          var newArticle = new Article
+          {
+            Title = title,
+            Url = url,
+            UserId = user.Id
+          };
+          // add it
+          db.Articles.Add(newArticle);
+          // save it
+          db.SaveChanges();
+
 
         }
         else if (input == "exit")

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace HackerNews.Models
 {
@@ -10,6 +11,10 @@ namespace HackerNews.Models
     public DateTime CreatedDate { get; set; } = DateTime.Now;
     public DateTime LastLoggedIn { get; set; } = DateTime.Now;
     public string About { get; set; }
+
+
+    //navigation properties
+    public List<Article> Articles { get; set; } = new List<Article>();
 
   }
 }
