@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using HackerNews.Models;
 
 namespace HackerNews
 {
@@ -10,12 +12,30 @@ namespace HackerNews
       Console.WriteLine("Welcome to cmd hacker news, who are you?");
       var username = Console.ReadLine();
       // TODO: create or get user 
+      var db = new CmdNewsContext();
+      // getting the user if it exists
+      var user = db.Users.FirstOrDefault(f => f.UserName.ToLower() == username.ToLower());
+      // if user does not exists, create it
+      if (user == null)
+      {
+        user = new User
+        {
+          UserName = username.ToLower()
+        };
+        db.Users.Add(user);
+        db.SaveChanges();
+      }
+
+      // update the last logged in date
+      user.LastLoggedIn = DateTime.Now;
+      db.SaveChanges();
+
       var reading = true;
 
       while (reading)
       {
 
-        Console.WriteLine("Welcome to cmd hacker news");
+        Console.WriteLine($"Welcome {user.UserName} to cmd hacker news");
         Console.WriteLine("what do you wanna do?");
         Console.WriteLine("see the most (recent)");
         Console.WriteLine("see the (top)");
@@ -60,6 +80,7 @@ namespace HackerNews
         else if (input == "add")
         {
           Console.WriteLine("Adding an article...");
+
         }
         else if (input == "exit")
         {
