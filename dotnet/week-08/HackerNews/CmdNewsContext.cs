@@ -29,6 +29,6 @@ namespace HackerNews
 
     public DbSet<User> Users { get; set; }
     public DbSet<Article> Articles { get; set; }
-    public DbSet<UserFavorties> UserFavorites { get; set; }
+    public DbSet<UserFavorties> UserFavorties { get; set; }
   }
 }

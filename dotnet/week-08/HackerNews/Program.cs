@@ -15,7 +15,7 @@ namespace HackerNews
       // id. Title => url @ time by username
       foreach (var article in articles)
       {
-        Console.WriteLine($"{article.Id} - {article.Title} => {article.Url} @ {article.DateSubmitted} by {article.User.UserName} ");
+        Console.WriteLine($"{article.Id} - {article.Title} => {article.Url} @ {article.DateSubmitted} by {article.User?.UserName} ");
       }
     }
 
@@ -79,11 +79,25 @@ namespace HackerNews
         {
           Console.WriteLine("Viewing your favorites");
           Console.WriteLine("=========================");
-          var favs = db.Users
-            .Include(i => i.UserFavorties)
-            .ThenInclude(t => t.Article)
-            .SelectMany(s => s.Articles)
-            .Include(i => i.User);
+          var favs = db
+              .UserFavorties
+              .Include(uf => uf.Article)
+              .Where(uf => uf.UserId == user.Id)
+              .Select(uf => uf.Article)
+              .Include(article => article.User);
+          /*
+          
+          // maybe???
+
+            SELECT Article.Text, Article.Url, User.UserName, Article.DateCreated, Article.Id
+            FROM UserFavorites
+            LEFT JOIN Articles ON Articles.Id = UserFavorites.ArticleID 
+            LEFT JOIN User ON Articles.UserId = User.Id
+            WHERE UserFavorties.UserId = {user.id}
+          
+           */
+
+
           DisplayArticles(favs);
 
         }
