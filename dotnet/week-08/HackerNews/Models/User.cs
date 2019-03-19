@@ -15,6 +15,8 @@ namespace HackerNews.Models
 
     //navigation properties
     public List<Article> Articles { get; set; } = new List<Article>();
+    public List<UserFavorties> UserFavorties { get; set; } = new List<UserFavorties>();
+
 
   }
 }

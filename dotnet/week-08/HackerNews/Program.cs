@@ -79,6 +79,12 @@ namespace HackerNews
         {
           Console.WriteLine("Viewing your favorites");
           Console.WriteLine("=========================");
+          var favs = db.Users
+            .Include(i => i.UserFavorties)
+            .ThenInclude(t => t.Article)
+            .SelectMany(s => s.Articles)
+            .Include(i => i.User);
+          DisplayArticles(favs);
 
         }
         else if (input.Contains("favorite"))
@@ -86,6 +92,13 @@ namespace HackerNews
           if (int.TryParse(input.Split(' ')[1], out int articleId))
           {
             Console.WriteLine($"favoriting article {articleId}");
+            user.UserFavorties.Add(new UserFavorties
+            {
+              ArticleId = articleId,
+              UserId = user.Id
+            });
+            db.SaveChanges();
+            Console.WriteLine("Successfully saved");
           }
         }
         else if (input.Contains("see"))

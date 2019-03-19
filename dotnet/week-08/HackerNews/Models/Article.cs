@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace HackerNews.Models
 {
@@ -12,6 +13,8 @@ namespace HackerNews.Models
     // navigation property
     public int UserId { get; set; }
     public User User { get; set; }
+
+    public List<UserFavorties> UserFavorties { get; set; } = new List<UserFavorties>();
 
   }
 }
