@@ -1,11 +1,24 @@
 ﻿using System;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+
 using HackerNews.Models;
 
 namespace HackerNews
 {
   class Program
   {
+
+    static void DisplayArticles(IQueryable<Article> articles)
+    {
+      // display the articles
+      // id. Title => url @ time by username
+      foreach (var article in articles)
+      {
+        Console.WriteLine($"{article.Id} - {article.Title} => {article.Url} @ {article.DateSubmitted} by {article.User.UserName} ");
+      }
+    }
+
     static void Main(string[] args)
     {
 
@@ -50,6 +63,11 @@ namespace HackerNews
         {
           Console.WriteLine("Recent Articles");
           Console.WriteLine("=========================");
+          // recent 10 articles 
+          var recentArticles = db.Articles
+            .Include(i => i.User)
+            .OrderByDescending(o => o.DateSubmitted).Take(10);
+          DisplayArticles(recentArticles);
         }
         else if (input == "top")
         {
