@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using MovieApi.Models;
 
 namespace movieapi
 {
@@ -42,5 +43,8 @@ namespace movieapi
     {
       modelBuilder.HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
     }
+
+    public DbSet<Movie> Movies { get; set; }
+
   }
 }
