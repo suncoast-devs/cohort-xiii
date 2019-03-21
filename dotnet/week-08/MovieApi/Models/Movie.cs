@@ -6,5 +6,6 @@ namespace MovieApi.Models
     public string Title { get; set; }
     public string Rating { get; set; }
     public string Director { get; set; }
+    public bool IsActive { get; set; } = true;
   }
 }

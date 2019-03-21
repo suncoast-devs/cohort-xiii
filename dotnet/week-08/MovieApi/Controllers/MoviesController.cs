@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using MovieApi.Models;
+using MovieApi.ViewModels;
 
 namespace movieapi.Controllers
 {
@@ -18,11 +19,24 @@ namespace movieapi.Controllers
     }
 
     [HttpGet]
-    public ActionResult<IList<Movie>> GetAllMovies()
+    public ActionResult<IList<MovieViewModel>> GetAllMovies()
     {
       // TODO: query the database
-      // return the results
-      var results = db.Movies.OrderBy(o => o.Title).ToList();
+      // return the results that not queued for delete
+
+
+      var results = db
+            .Movies
+            .Where(w => w.IsActive)
+            .OrderBy(o => o.Title)
+            .Select(s => new MovieViewModel
+            {
+              Title = s.Title,
+              Rating = s.Rating,
+              Director = s.Director,
+              Id = s.Id
+            })
+            .ToList();
       return results;
     }
 
@@ -46,8 +60,34 @@ namespace movieapi.Controllers
 
 
     // PUT
+    [HttpPut("{id}")]
+    public ActionResult<Movie> UpdateMovie(int id, [FromBody] Movie newMovieData)
+    {
+      var movie = db.Movies.FirstOrDefault(f => f.Id == id);
+      movie.Title = newMovieData.Title;
+      movie.Rating = newMovieData.Rating;
+      movie.Director = newMovieData.Director;
+      db.SaveChanges();
+      return movie;
+    }
 
     // DELETE
+    [HttpDelete("{id}")]
+    public ActionResult DeleteMovie(int id)
+    {
+
+      // update that boolean
+      // soft delete
+      var movie = db.Movies.FirstOrDefault(f => f.Id == id);
+      movie.IsActive = false;
+      db.SaveChanges();
+      return Ok();
+      //     // hard deletion
+      //   var movie = db.Movies`.FirstOrDefault(f => f.Id == id);
+      //   db.Movies.Remove(movie);
+      //   db.SaveChanges();
+      //   return Ok();`
+    }
 
   }
 }
