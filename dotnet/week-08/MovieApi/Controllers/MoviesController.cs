@@ -10,13 +10,18 @@ namespace movieapi.Controllers
   [ApiController]
   public class MoviesController : ControllerBase
   {
+    private DatabaseContext db;
+
+    public MoviesController()
+    {
+      this.db = new DatabaseContext();
+    }
 
     [HttpGet]
     public ActionResult<IList<Movie>> GetAllMovies()
     {
       // TODO: query the database
       // return the results
-      var db = new DatabaseContext();
       var results = db.Movies.OrderBy(o => o.Title).ToList();
       return results;
     }
@@ -25,7 +30,6 @@ namespace movieapi.Controllers
     public ActionResult<Movie> GetOneMovie(int id)
     {
       // go to the database
-      var db = new DatabaseContext();
       // query the database for the movie with the id of id
       var movie = db.Movies.FirstOrDefault(f => f.Id == id);
       // return that movie
@@ -35,12 +39,15 @@ namespace movieapi.Controllers
     [HttpPost]
     public ActionResult<Movie> CreateMovie([FromBody] Movie movieToAdd)
     {
-
-      var db = new DatabaseContext();
       db.Movies.Add(movieToAdd);
       db.SaveChanges();
       return movieToAdd;
     }
+
+
+    // PUT
+
+    // DELETE
 
   }
 }
