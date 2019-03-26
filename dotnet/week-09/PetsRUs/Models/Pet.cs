@@ -17,6 +17,8 @@ namespace PetsRUs.Models
     public DateTime? DateAdopted { get; set; } = null;
     public DateTime DateArrived { get; set; } = DateTime.Now;
 
+    public string ImageUrl { get; set; }
+
     // navigation properties
     public int ShelterId { get; set; }
     public Shelter Shelter { get; set; }

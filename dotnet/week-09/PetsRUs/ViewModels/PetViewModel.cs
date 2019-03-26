@@ -18,5 +18,6 @@ namespace PetsRUs.ViewModels
     public DateTime DateArrived { get; set; } = DateTime.Now;
     public int ShelterId { get; set; }
     public string ShelterUrl { get; set; }
+    public string ImageUrl { get; set; }
   }
 }

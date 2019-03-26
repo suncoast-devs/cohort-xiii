@@ -1,25 +1,40 @@
-import React, { Component } from 'react'
+import React from 'react'
+import axios from 'axios'
 
-class Pet extends Component {
-  render() {
-    return (
-      <li className="pet-container">
-        <img
-          className="pet-image"
-          src="https://cdn0.wideopenpets.com/wp-content/uploads/2016/06/flemish-ii.jpg"
-        />
-        <h1>Sir Remington Rabbit I</h1>
-        <section>
-          <div className="italics">rabbit, age 4</div>
-          <div>Great with kids</div>
-          <div>looking for a home since 1/23/2019</div>
-        </section>
-        <section className="action-items">
-          <button>Adopt Sir Remington Rabbit I</button>
-        </section>
-      </li>
-    )
+export default function Pet(props) {
+  const updateAdoptionStatus = () => {
+    axios
+      .put(`https://localhost:5001/api/pets/${props.data.id}/adopt`)
+      .then(resp => {
+        console.log({ resp })
+        // TODO: Something?????
+      })
   }
-}
 
-export default Pet
+  return (
+    <li className="pet-container">
+      <img
+        className="pet-image"
+        src={
+          props.data.imageUrl
+            ? props.data.imageUrl
+            : 'https://octodex.github.com/images/maxtocat.gif'
+        }
+        alt={`Picture of ${props.data.name}`}
+      />
+      <h1>{props.data.name}</h1>
+      <section>
+        <div className="italics">
+          {props.data.breed}, age {props.data.age}
+        </div>
+        <div>
+          {props.data.goodWithKids ? 'Great with kids' : 'Not Friendly'}
+        </div>
+        <div>looking for a home since {props.data.dateArrived}</div>
+      </section>
+      <section className="action-items">
+        <button onClick={updateAdoptionStatus}>Adopt {props.data.name}</button>
+      </section>
+    </li>
+  )
+}

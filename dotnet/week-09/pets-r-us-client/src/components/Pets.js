@@ -1,19 +1,22 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import Pet from './Pet'
+import axios from 'axios'
 
-class Pets extends Component {
-  render() {
-    return (
-      <ul className="all-pets">
-        <Pet />
-        <Pet />
-        <Pet />
-        <Pet />
-        <Pet />
-        <Pet />
-      </ul>
-    )
-  }
+export default function Pets() {
+  const [pets, setPets] = useState([])
+
+  useEffect(() => {
+    axios.get('https://localhost:5001/api/pets').then(resp => {
+      console.log({ resp })
+      setPets(resp.data)
+    })
+  }, [])
+
+  return (
+    <ul className="all-pets">
+      {pets.map(pet => {
+        return <Pet key={pet.id} data={pet} />
+      })}
+    </ul>
+  )
 }
-
-export default Pets

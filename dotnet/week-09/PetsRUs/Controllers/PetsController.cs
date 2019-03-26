@@ -35,6 +35,7 @@ namespace PetsRUs.Controllers
         IsAdopted = s.IsAdopted,
         Name = s.Name,
         Species = s.Species,
+        ImageUrl = s.ImageUrl,
         ShelterId = s.ShelterId,
         ShelterUrl = $"https://localhost:5001/api/shelter/{s.ShelterId}"
       }).ToList();
