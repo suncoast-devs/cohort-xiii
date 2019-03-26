@@ -7,7 +7,7 @@ export default function Pet(props) {
       .put(`https://localhost:5001/api/pets/${props.data.id}/adopt`)
       .then(resp => {
         console.log({ resp })
-        // TODO: Something?????
+        props.updateParentUi()
       })
   }
 

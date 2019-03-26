@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,9 +22,11 @@ namespace PetsRUs.Controllers
     }
 
     [HttpGet]
-    public ActionResult<IList<PetViewModel>> GetAllPets()
+    public ActionResult<IList<PetViewModel>> GetAllPetsUpForAdoption()
     {
-      return db.Pets.OrderByDescending(o => o.DateArrived)
+      return db.Pets
+      .Where(w => !w.IsAdopted)
+      .OrderByDescending(o => o.DateArrived)
       .Select(s => new PetViewModel
       {
         Age = s.Age,
@@ -50,6 +53,24 @@ namespace PetsRUs.Controllers
       shelter.CurrentCapacity++;
       await db.SaveChangesAsync();
       return newPet;
+    }
+
+    [HttpPut("{id}/adopt")]
+    public async Task<ActionResult> AdoptPet(int id)
+    {
+      // find the pet
+      var pet = await db.Pets.FirstOrDefaultAsync(f => f.Id == id);
+      if (pet == null)
+      {
+        return NotFound();
+      }
+      // update the details
+      pet.IsAdopted = true;
+      pet.DateAdopted = DateTime.Now;
+      // save the details
+      await db.SaveChangesAsync();
+      // return something... 
+      return Ok();
     }
 
   }
