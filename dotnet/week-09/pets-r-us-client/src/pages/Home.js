@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TopBar from '../components/TopBar'
 import NavBar from '../components/NavBar'
+import Pets from '../components/Pets'
 
 class Home extends Component {
   render() {
@@ -8,6 +9,7 @@ class Home extends Component {
       <>
         <TopBar />
         <NavBar />
+        <Pets />
       </>
     )
   }

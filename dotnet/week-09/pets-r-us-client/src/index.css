@@ -34,3 +34,34 @@ nav a {
   width: 100%;
   text-align: center;
 }
+
+.all-pets {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pet-container {
+  width: 45%;
+  padding: 1rem;
+}
+
+.action-items {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.action-items button {
+  height: 3rem;
+  background-color: #02A9EA;
+  color: #FAFF00;
+  border-radius: 5rem;
+}
+
+.italics {
+  font-style: italic;
+}
+
+.pet-image {
+  width: 75%;
+}
