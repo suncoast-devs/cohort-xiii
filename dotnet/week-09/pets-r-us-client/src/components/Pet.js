@@ -30,7 +30,11 @@ export default function Pet(props) {
         <div>
           {props.data.goodWithKids ? 'Great with kids' : 'Not Friendly'}
         </div>
-        <div>looking for a home since {props.data.dateArrived}</div>
+        <div>
+          looking for a home since{' '}
+          {new Date(props.data.dateArrived).toLocaleDateString()}
+        </div>
+        <div>Located at {props.data.shelterId}</div>
       </section>
       <section className="action-items">
         <button onClick={updateAdoptionStatus}>Adopt {props.data.name}</button>
