@@ -9,6 +9,9 @@ const log = type => console.log.bind(console, type)
 
 class AddAPet extends Component {
   state = {
+    uiSchema: {
+      'ui:order': ['*']
+    },
     formSchema: {
       title: 'Add a Pet',
       type: 'object',
@@ -46,7 +49,10 @@ class AddAPet extends Component {
         enumNames: resp.data.map(shelter => shelter.name)
       }
       this.setState({
-        formSchema: _form
+        formSchema: _form,
+        uiSchema: {
+          'ui:order': ['shelterId', '*']
+        }
       })
     })
   }
@@ -77,6 +83,7 @@ class AddAPet extends Component {
           </header>
           <Form
             schema={this.state.formSchema}
+            uiSchema={this.state.uiSchema}
             onChange={log('changed')}
             onSubmit={this.onSubmit}
             onError={log('errors')}
