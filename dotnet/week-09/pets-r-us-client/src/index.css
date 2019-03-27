@@ -65,3 +65,8 @@ nav a {
 .pet-image {
   width: 75%;
 }
+
+.required {
+  color: red;
+  padding-left: 0.25rem;
+}
