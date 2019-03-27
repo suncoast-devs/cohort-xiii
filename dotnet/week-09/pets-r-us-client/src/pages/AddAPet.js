@@ -5,10 +5,6 @@ import Form from 'react-jsonschema-form'
 import TopBar from '../components/TopBar'
 import NavBar from '../components/NavBar'
 
-// when we load the component, go to the API and get all the shelters
-// dynamically update the form to show the shelters,
-// post the selected shelter ID back to the API
-
 const log = type => console.log.bind(console, type)
 
 class AddAPet extends Component {
