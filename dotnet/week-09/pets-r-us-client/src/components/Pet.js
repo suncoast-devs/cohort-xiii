@@ -34,7 +34,7 @@ export default function Pet(props) {
           looking for a home since{' '}
           {new Date(props.data.dateArrived).toLocaleDateString()}
         </div>
-        <div>Located at {props.data.shelterId}</div>
+        <div>Located at {props.data.shelterName}</div>
       </section>
       <section className="action-items">
         <button onClick={updateAdoptionStatus}>Adopt {props.data.name}</button>

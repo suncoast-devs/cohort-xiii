@@ -19,5 +19,6 @@ namespace PetsRUs.ViewModels
     public int ShelterId { get; set; }
     public string ShelterUrl { get; set; }
     public string ImageUrl { get; set; }
+    public string ShelterName { get; set; }
   }
 }

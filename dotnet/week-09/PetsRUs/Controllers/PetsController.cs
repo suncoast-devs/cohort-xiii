@@ -25,6 +25,7 @@ namespace PetsRUs.Controllers
     public ActionResult<IList<PetViewModel>> GetAllPetsUpForAdoption()
     {
       return db.Pets
+      .Include(i => i.Shelter)
       .Where(w => !w.IsAdopted)
       .OrderByDescending(o => o.DateArrived)
       .Select(s => new PetViewModel
@@ -40,7 +41,8 @@ namespace PetsRUs.Controllers
         Species = s.Species,
         ImageUrl = s.ImageUrl,
         ShelterId = s.ShelterId,
-        ShelterUrl = $"https://localhost:5001/api/shelter/{s.ShelterId}"
+        ShelterUrl = $"https://localhost:5001/api/shelter/{s.ShelterId}",
+        ShelterName = s.Shelter.Name
       }).ToList();
     }
 
